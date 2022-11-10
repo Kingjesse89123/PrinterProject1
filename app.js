@@ -16,7 +16,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.get('/',(req,res)=>{
+  app.send('Waiting for Order')
+})
 app.post('/',(req,res)=>{
     let fs = require('fs');
     fs.writeFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.txt', 'Hello World!', function (err) {
