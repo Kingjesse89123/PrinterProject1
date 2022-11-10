@@ -16,16 +16,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-function createorder(){
-  let fs = require('fs');
-  fs.writeFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.txt', 'Hello World!', function (err) {
-    if (err) return console.log(err);
-    console.log('Hello World > helloworld.txt');
-  });
-}
 
-app.get('/',(req,res)=>{
-  res.send('<button onclick="createorder()">Submit Order</button>')
+app.post('/',(req,res)=>{
+    let fs = require('fs');
+    fs.writeFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.txt', 'Hello World!', function (err) {
+      if (err) return console.log(err);
+      console.log('Hello World > helloworld.txt');
+    });
 })
 app.delete('/BPCloudPrnt',(req,res)=>{
   let fs = require('fs')
