@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/',(req,res)=>{
-  app.send('Waiting for Order')
+  res.send('Waiting for Order')
 })
 app.post('/',(req,res)=>{
     let fs = require('fs');
