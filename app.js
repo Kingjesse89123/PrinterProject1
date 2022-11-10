@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const fs = require("fs");
 
 const app = express();
 let mac = '00:62:2F:FB:18'
@@ -15,8 +16,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+function createorder(){
+  let fs = require('fs');
+  fs.writeFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.txt', 'Hello World!', function (err) {
+    if (err) return console.log(err);
+    console.log('Hello World > helloworld.txt');
+  });
+}
+
 app.get('/',(req,res)=>{
-  res.send('Submit Order')
+  res.send('<button onclick="createorder()">Submit Order</button>')
 })
 app.delete('/BPCloudPrnt',(req,res)=>{
   let fs = require('fs')
@@ -34,11 +43,6 @@ app.post('/BPCloudPrnt',(req,res) =>{
   else{
     res.send('Mac Address doesnt match');
   }
-  let fs = require('fs');
-  fs.writeFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.txt', 'Hello World!', function (err) {
-    if (err) return console.log(err);
-    console.log('Hello World > helloworld.txt');
-  });
 });
 app.get('/BPCloudPrnt',(req,res) =>{
   res.send('Receipt object sent');
