@@ -23,6 +23,7 @@ app.post('/',(req,res)=>{
       if (err) return console.log(err);
       console.log('Hello World > helloworld.txt');
     });
+    res.send('Order Submited')
 })
 app.delete('/BPCloudPrnt',(req,res)=>{
   let fs = require('fs')
