@@ -26,7 +26,7 @@ app.get('/',(req,res)=>{
 })
 app.post('/',(req,res)=>{
     let fs = require('fs');
-    fs.writeFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.spt', 'Hello World!', function (err) {
+    fs.writeFile(__dirname +'/helloworld.spt', 'Hello World!', function (err) {
       if (err) return console.log(err);
       console.log('Hello World > helloworld.txt');
     });
@@ -34,7 +34,7 @@ app.post('/',(req,res)=>{
 })
 app.delete('/BPCloudPrnt',(req,res)=>{
   let fs = require('fs')
-  fs.unlink('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.spt',function (err) {
+  fs.unlink(__dirname +'/helloworld.spt',function (err) {
     if (err) return console.log(err);
     console.log('Hello World > helloworld.txt');
   });
@@ -42,8 +42,9 @@ app.delete('/BPCloudPrnt',(req,res)=>{
 })
 app.post('/BPCloudPrnt',(req,res) =>{
   let parsedJSON = req.body;
+  res.send(parsedJSON['mac'])
   if(mac === parsedJSON['mac']){
-    if(fs.existsSync('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.spt') ){
+    if(fs.existsSync(__dirname +'/helloworld.spt') ){
       let arr = {"jobReady": 'true', "mediaTypes": ["text/plain"]}
       res.send(JSON.stringify(arr));
     }
@@ -55,7 +56,7 @@ app.post('/BPCloudPrnt',(req,res) =>{
 });
 app.get('/BPCloudPrnt',(req,res) =>{
   res.setHeader('Content-Type', 'application/vnd.star.starprnt')
-  res.sendFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.spt');
+  res.sendFile(__dirname +'/helloworld.spt');
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
