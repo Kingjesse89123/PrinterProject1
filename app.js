@@ -17,7 +17,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/',(req,res)=>{
-  res.send('Waiting for Order')
+  if(fs.existsSync('PrinterProject1\\helloworld.spt') ) {
+    res.send('Waiting for Order')
+  }
 })
 app.post('/',(req,res)=>{
     let fs = require('fs');
