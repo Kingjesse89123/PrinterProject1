@@ -38,7 +38,11 @@ app.delete('/BPCloudPrnt',(req,res)=>{
 app.post('/BPCloudPrnt',(req,res) =>{
   let parsedJSON = req.body;
   if(mac === parsedJSON['mac']){
-    res.send('Printer Ready');
+    if(fs.existsSync('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.spt') ){
+      let arr = {"jobReady": 'true', "mediaTypes": ["text/plain"]}
+      res.send(JSON.stringify(arr));
+    }
+
   }
   else{
     res.send('Mac Address doesnt match');
