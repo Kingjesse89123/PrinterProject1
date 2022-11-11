@@ -21,7 +21,7 @@ app.get('/',(req,res)=>{
 })
 app.post('/',(req,res)=>{
     let fs = require('fs');
-    fs.writeFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.txt', 'Hello World!', function (err) {
+    fs.writeFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.spt', 'Hello World!', function (err) {
       if (err) return console.log(err);
       console.log('Hello World > helloworld.txt');
     });
@@ -29,7 +29,7 @@ app.post('/',(req,res)=>{
 })
 app.delete('/BPCloudPrnt',(req,res)=>{
   let fs = require('fs')
-  fs.unlink('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.txt',function (err) {
+  fs.unlink('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.spt',function (err) {
     if (err) return console.log(err);
     console.log('Hello World > helloworld.txt');
   });
@@ -45,7 +45,7 @@ app.post('/BPCloudPrnt',(req,res) =>{
   }
 });
 app.get('/BPCloudPrnt',(req,res) =>{
-  res.sendFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.txt');
+  res.sendFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.spt');
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
