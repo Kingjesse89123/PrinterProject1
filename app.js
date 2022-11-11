@@ -20,6 +20,9 @@ app.get('/',(req,res)=>{
   if(fs.existsSync('PrinterProject1\\helloworld.spt') ) {
     res.send('Waiting for Order')
   }
+  else{
+    res.send('nope')
+  }
 })
 app.post('/',(req,res)=>{
     let fs = require('fs');
