@@ -45,7 +45,7 @@ app.post('/BPCloudPrnt',(req,res) =>{
   }
 });
 app.get('/BPCloudPrnt',(req,res) =>{
-  res.send('Receipt object sent');
+  res.send('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.txt');
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
