@@ -45,7 +45,7 @@ app.post('/BPCloudPrnt',(req,res) =>{
   }
 });
 app.get('/BPCloudPrnt',(req,res) =>{
-  res.setHeader('Content-Type: application/vnd.star.starprnt')
+  res.setHeader('Content-Type', 'application/vnd.star.starprnt')
   res.sendFile('C:\\Users\\IXIKl\\WebstormProjects\\untitled4\\helloworld.spt');
 });
 // catch 404 and forward to error handler
