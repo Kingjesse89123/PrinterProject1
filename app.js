@@ -6,7 +6,7 @@ const logger = require('morgan');
 const fs = require("fs");
 
 const app = express();
-let mac = '00:62:2F:FB:18'
+let mac = '00:11:62:2f:fb:18'
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
