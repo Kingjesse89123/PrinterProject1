@@ -47,9 +47,9 @@ app.post('/BPCloudPrnt',(req,res) =>{
     if(fs.existsSync(__dirname +'/helloworld.spt') ){
       let arr = {
         jobReady: true,
-        mediaTypes: "[text/plain]"
+        mediaTypes: ["text/plain"]
       }
-      res.send(arr);
+      res.send(JSON.stringify(arr));
     }
 
   }
