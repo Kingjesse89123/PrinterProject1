@@ -46,7 +46,7 @@ app.post('/BPCloudPrnt',(req,res) =>{
   res.send(parsedJSON['printerMAC'])
   if(mac === parsedJSON['printerMAC']){
     if(fs.existsSync(__dirname +'/helloworld.spt') ){
-      let arr = {"jobReady": 'true', "mediaTypes": ["text/plain"]}
+      let arr = '{jobReady": "true", "mediaTypes": "[text/plain]"}'
       res.send(JSON.stringify(arr));
     }
 
