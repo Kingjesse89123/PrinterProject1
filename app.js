@@ -43,7 +43,6 @@ app.delete('/BPCloudPrnt',(req,res)=>{
 app.post('/BPCloudPrnt',(req,res) =>{
   let parsedJSON = req.body;
   console.log(parsedJSON)
-  res.send(parsedJSON['printerMAC'])
   if(mac === parsedJSON['printerMAC']){
     if(fs.existsSync(__dirname +'/helloworld.spt') ){
       let arr = '{jobReady": "true", "mediaTypes": "[text/plain]"}'
