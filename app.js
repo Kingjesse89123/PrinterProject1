@@ -42,6 +42,7 @@ app.delete('/BPCloudPrnt',(req,res)=>{
 })
 app.post('/BPCloudPrnt',(req,res) =>{
   let parsedJSON = req.body;
+  console.log(parsedJSON)
   res.send(parsedJSON['mac'])
   if(mac === parsedJSON['mac']){
     if(fs.existsSync(__dirname +'/helloworld.spt') ){
