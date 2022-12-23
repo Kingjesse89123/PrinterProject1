@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const fs = require("fs");
-
+const sharp = require('sharp')
 const app = express();
 let mac = '00:11:62:2F:FB:18'
 // view engine setup
