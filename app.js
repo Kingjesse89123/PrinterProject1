@@ -26,17 +26,21 @@ app.get('/',(req,res)=>{
 })
 app.post('/',(req,res)=>{
     let fs = require('fs');
-    fs.writeFile(__dirname +'/helloworld.spt', 'Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!d', function (err) {
-      if (err) return console.log(err);
-      console.log('Hello World > helloworld.txt');
-    });
+  var img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
+      + "NAAAAKElEQVQ4jWNgYGD4Twzu6FhFFGYYNXDUwGFpIAk2E4dHDRw1cDgaCAASFOffhEIO"
+      + "3gAAAABJRU5ErkJggg==";
+// strip off the data: url prefix to get just the base64-encoded bytes
+  var data = img.replace(/^data:image\/\w+;base64,/, "");
+  var buf = Buffer.from(data, 'base64');
+  fs.writeFile(__dirname +'/helloworld.png', buf, function (err) {
+    if (err) return console.log(err);
+  });
     res.send('Order Submited')
 })
 app.delete('/BPCloudPrnt',(req,res)=>{
   let fs = require('fs')
-  fs.unlink(__dirname +'/helloworld.spt',function (err) {
+  fs.unlink(__dirname +'/helloworld.png',function (err) {
     if (err) return console.log(err);
-    console.log('Hello World > helloworld.txt');
   });
   res.send('Print Job Done')
 })
@@ -44,10 +48,10 @@ app.post('/BPCloudPrnt',(req,res) =>{
   let parsedJSON = req.body;
   console.log(parsedJSON)
   if(mac === parsedJSON['printerMAC']){
-    if(fs.existsSync(__dirname +'/helloworld.spt') ){
+    if(fs.existsSync(__dirname +'/helloworld.png') ){
       let arr = {
         jobReady: true,
-        mediaTypes: ["text/plain"]
+        mediaTypes: ["image/png"]
       }
       res.send(JSON.stringify(arr));
     }
@@ -58,7 +62,7 @@ app.post('/BPCloudPrnt',(req,res) =>{
   }
 });
 app.get('/BPCloudPrnt',(req,res) =>{
-  res.setHeader('Content-Type', 'application/vnd.star.starprnt')
+  res.setHeader('Content-Type', 'image/vnd.star.png')
   res.sendFile(__dirname +'/helloworld.spt');
 });
 // catch 404 and forward to error handler
