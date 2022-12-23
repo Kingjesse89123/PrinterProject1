@@ -6,7 +6,7 @@ const logger = require('morgan');
 const fs = require("fs");
 
 const app = express();
-let mac = '00:11:62:2f:fb:18'
+let mac = '00:11:62:2F:FB:18'
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -26,9 +26,7 @@ app.get('/',(req,res)=>{
 })
 app.post('/',(req,res)=>{
     let fs = require('fs');
-  var img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
-      + "NAAAAKElEQVQ4jWNgYGD4Twzu6FhFFGYYNXDUwGFpIAk2E4dHDRw1cDgaCAASFOffhEIO"
-      + "3gAAAABJRU5ErkJggg==";
+  var img = "https://5nn73jb7.directus.app/assets/1267603b-6529-4b90-94bc-caa9f600a7bf";
 // strip off the data: url prefix to get just the base64-encoded bytes
   var data = img.replace(/^data:image\/\w+;base64,/, "");
   var buf = Buffer.from(data, 'base64');
