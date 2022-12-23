@@ -63,7 +63,7 @@ app.post('/BPCloudPrnt',(req,res) =>{
 });
 app.get('/BPCloudPrnt',(req,res) =>{
   res.setHeader('Content-Type', 'image/vnd.star.png')
-  res.sendFile(__dirname +'/helloworld.spt');
+  res.sendFile(__dirname +'/helloworld.png');
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
